@@ -32,6 +32,7 @@ end
 
 def route53
   require 'aws-sdk'
+  binding.remote_pry
   @route53 ||= begin
     if mock?
       @route53 = ::Aws::Route53::Client.new(stub_responses: true)
