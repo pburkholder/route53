@@ -31,6 +31,7 @@ def zone_id
 end
 
 def route53
+  require 'aws-sdk'
   @route53 ||= begin
     if mock?
       @route53 = ::Aws::Route53::Client.new(stub_responses: true)
