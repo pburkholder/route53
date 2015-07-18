@@ -32,6 +32,7 @@ end
 
 def route53
   require 'aws-sdk'
+  require 'pry-remote'
   binding.remote_pry
   @route53 ||= begin
     if mock?
