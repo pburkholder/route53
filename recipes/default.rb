@@ -22,6 +22,7 @@
 # See also: https://github.com/opscode-cookbooks/aws/pull/110/files
 chef_gem 'aws-sdk' do
   action :install
+  version '~> 2'
   compile_time false if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
 end
 
