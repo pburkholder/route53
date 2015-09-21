@@ -37,8 +37,10 @@ def route53
       @route53 = ::Aws::Route53::Client.new(stub_responses: true)
     elsif new_resource.aws_access_key_id && new_resource.aws_secret_access_key
       @route53 = ::Aws::Route53::Client.new(
-        access_key_id: new_resource.aws_access_key_id,
-        secret_access_key: new_resource.aws_secret_access_key,
+        credentials: Aws::Credentials.new(
+          new_resource.aws_access_key_id,
+          new_resource.aws_secret_access_key
+        ),
         region: new_resource.aws_region
       )
     else
